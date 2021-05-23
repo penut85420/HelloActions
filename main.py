@@ -12,4 +12,8 @@ async def on_ready():
 async def cmd_plus(ctx, a: int, b: int):
     await ctx.send(plus(a, b))
 
+@bot.command(name='minus')
+async def cmd_minus(ctx, a: int, b: int):
+    await ctx.send(minus(a, b))
+
 bot.run(os.getenv('TOKEN'))
