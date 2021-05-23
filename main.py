@@ -8,7 +8,8 @@ bot = commands.Bot(command_prefix='!')
 
 @bot.event
 async def on_ready():
-    channel = discord.utils.get(bot.get_all_channels(), id=826705608082194473)
+    ready_channel_id = int(os.getenv('READY_CHANNEL'))
+    channel = discord.utils.get(bot.get_all_channels(), id=ready_channel_id)
     await channel.send(f'{get_time()} | {bot.user} | Ready!')
 
 @bot.command(name='plus')
