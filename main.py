@@ -1,12 +1,15 @@
 import os
+import discord
 from discord.ext import commands
-from pkg.utils import intdiv, plus, minus, multi, intdiv, moddiv
+from discord.utils import get
+from pkg.utils import intdiv, plus, minus, multi, intdiv, moddiv, get_time
 
 bot = commands.Bot(command_prefix='!')
 
 @bot.event
 async def on_ready():
-    print(f'{bot.user} | Ready!')
+    channel = discord.utils.get(bot.get_all_channels(), id=826705608082194473)
+    await channel.send(f'{get_time()} | {bot.user} | Ready!')
 
 @bot.command(name='plus')
 async def cmd_plus(ctx, a: int, b: int):
