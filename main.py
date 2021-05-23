@@ -16,4 +16,8 @@ async def cmd_plus(ctx, a: int, b: int):
 async def cmd_minus(ctx, a: int, b: int):
     await ctx.send(minus(a, b))
 
+@bot.command(name='multi')
+async def cmd_multi(ctx, a: int, b: int):
+    await ctx.send(multi(a, b))
+
 bot.run(os.getenv('TOKEN'))
